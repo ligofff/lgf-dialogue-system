@@ -1,6 +1,6 @@
 {
     "name": "com.ligofff.lgf-dialogue-system.Editor",
-    "rootNamespace": "",
+    "rootNamespace": "LGF.DialogueSystem.Editor",
     "references": [
         "GUID:002c1bbed08fa44d282ef34fd5edb138",
         "GUID:fcee8d91a7038ed48a24d527da492450"
