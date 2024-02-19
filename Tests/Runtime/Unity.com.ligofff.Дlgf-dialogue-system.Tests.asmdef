@@ -1,0 +1,11 @@
+{
+  "name": "Unity.com.ligofff.Дlgf-dialogue-system.Tests",
+  "references": [
+    "Unity.com.ligofff.Дlgf-dialogue-system"
+  ],
+  "optionalUnityReferences": [
+    "TestAssemblies"
+  ],
+  "includePlatforms": [],
+  "excludePlatforms": []
+}

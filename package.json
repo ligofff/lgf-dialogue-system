@@ -1,0 +1,27 @@
+{
+  "name": "com.ligofff.Дlgf-dialogue-system",
+  "displayName": "Ligofff - LGF Dialogue System",
+  "version": "0.1.0",
+  "unity": "2022.2",
+  "description": "Just a dialogue system, written with Siccity's xNode framework",
+  "keywords": [
+    "unity",
+	"unity3d",
+	"upm",
+    "ligofff",
+    "utility"
+  ],
+  "homepage": "https://github.com/ligofff/Дlgf-dialogue-system.git",
+  "bugs": {
+    "url": "https://github.com/ligofff/Дlgf-dialogue-system/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/ligofff/Дlgf-dialogue-system.git"
+  },
+  "license": "MIT",
+  "author": "Ligofff (https://ligofff.com)",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
