@@ -1,6 +1,11 @@
 {
     "name": "com.ligofff.lgf-dialogue-system",
-    "references": [],
+    "rootNamespace": "",
+    "references": [
+        "GUID:b8e24fd1eb19b4226afebb2810e3c19b",
+        "GUID:939c29fbb20335b4fad2b1ef312ff79f",
+        "GUID:8f9792b05cc529a47a8c7a32ce3e94f8"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
