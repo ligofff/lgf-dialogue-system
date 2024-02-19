@@ -13,7 +13,7 @@ Just a dialogue system, written with Siccity's xNode framework
 
 ### Install via GIT URL
 
-Go to ```Package Manager``` -> ```Add package from GIT url...``` -> Enter ```https://github.com/ligofff/Дlgf-dialogue-system.git``` -> Click ```Add```
+Go to ```Package Manager``` -> ```Add package from GIT url...``` -> Enter ```https://github.com/ligofff/lgf-dialogue-system.git``` -> Click ```Add```
 
 You will need to have Git installed and available in your system's PATH.
 

@@ -1,5 +1,5 @@
 {
-  "name": "com.ligofff.Дlgf-dialogue-system",
+  "name": "com.ligofff.lgf-dialogue-system",
   "displayName": "Ligofff - LGF Dialogue System",
   "version": "0.1.0",
   "unity": "2022.2",
@@ -11,13 +11,13 @@
     "ligofff",
     "utility"
   ],
-  "homepage": "https://github.com/ligofff/Дlgf-dialogue-system.git",
+  "homepage": "https://github.com/ligofff/lgf-dialogue-system.git",
   "bugs": {
-    "url": "https://github.com/ligofff/Дlgf-dialogue-system/issues"
+    "url": "https://github.com/ligofff/lgf-dialogue-system/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/ligofff/Дlgf-dialogue-system.git"
+    "url": "git+ssh://git@github.com/ligofff/lgf-dialogue-system.git"
   },
   "license": "MIT",
   "author": "Ligofff (https://ligofff.com)",

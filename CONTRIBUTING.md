@@ -2,7 +2,7 @@
 
 We use fairly "standard" github contribution workflow:
 
-1. Make an [Issue](https://github.com/ligofff/Дlgf-dialogue-system/issues/new)
+1. Make an [Issue](https://github.com/ligofff/lgf-dialogue-system/issues/new)
 2. Fork this repository (For further details, see https://docs.github.com/en/github/getting-started-with-github/fork-a-repo)
 3. Develop changes to a new branch to your forked repository
 4. Create a Pull Request from your forked repository against this repository
@@ -23,7 +23,7 @@ Open `Packages/manifest.json` with your favorite text editor. Add following line
 ```json
     {
         "dependencies": {
-            "com.ligofff.Дlgf-dialogue-system": "https://github.com/YOUR_USER/Дlgf-dialogue-system.git"
+            "com.ligofff.lgf-dialogue-system": "https://github.com/YOUR_USER/lgf-dialogue-system.git"
         }
     }
 ```
