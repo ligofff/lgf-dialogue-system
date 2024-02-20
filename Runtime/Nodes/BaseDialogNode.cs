@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Linq;
+using LGF.DialogueSystem.Graphs;
 using UnityEngine;
 using XNode;
 
-namespace Nodes
+namespace LGF.DialogueSystem.Nodes
 {
     public class BaseDialogNode : Node
     {
@@ -35,6 +36,17 @@ namespace Nodes
                 nodeGuid = Guid.NewGuid().ToString();
                 initialized = true;   
             }
+        }
+        
+        public virtual BaseDialogNode GetNextNode()
+        {
+            var nextNode = (BaseDialogNode)Outputs.FirstOrDefault()?.Connection?.node;
+            return nextNode;
+        }
+
+        public virtual void Enter()
+        {
+            
         }
 
         public override object GetValue(NodePort port)

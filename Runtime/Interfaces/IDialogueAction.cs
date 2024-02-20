@@ -2,6 +2,6 @@
 {
     public interface IDialogueAction
     {
-        public bool Invoke();
+        public void Invoke();
     }
 }

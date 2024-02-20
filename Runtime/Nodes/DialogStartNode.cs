@@ -1,6 +1,6 @@
-﻿namespace Nodes
+﻿namespace LGF.DialogueSystem.Nodes
 {
-    [NodeWidth(70), CreateNodeMenu("LGF Dialogue System/Start node")]
+    [NodeWidth(100), CreateNodeMenu("LGF Dialogue System/Start node")]
     public class DialogStartNode : BaseDialogNode
     {
         [Output]
