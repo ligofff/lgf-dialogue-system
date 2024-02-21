@@ -1,5 +1,6 @@
 ﻿using System;
 using LGF.DialogueSystem.Graphs;
+using LGF.DialogueSystem.Interfaces;
 using LGF.DialogueSystem.Nodes;
 
 namespace LGF.DialogueSystem
@@ -29,7 +30,7 @@ namespace LGF.DialogueSystem
             _currentDialogueNode.Enter();
         }
 
-        public BaseDialogNode Next()
+        public BaseDialogNode Next(int answerId)
         {
             _currentDialogueNode = _currentDialogueNode.GetNextNode();
             if (_currentDialogueNode != null)
@@ -48,6 +49,16 @@ namespace LGF.DialogueSystem
         public bool IsNeedToAnswer()
         {
             return _currentDialogueNode.GetType() == typeof(DialogueNode);
+        }
+        
+        public bool HasPhrase()
+        {
+            return _currentDialogueNode is IDialoguePhrase;
+        }
+
+        public string GetPhrase()
+        {
+            return ((IDialoguePhrase)_currentDialogueNode).Phrase;
         }
     }
 }

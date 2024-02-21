@@ -26,7 +26,7 @@ namespace LGF.DialogueSystem.Nodes
     }
     
     [NodeWidth(600), CreateNodeMenu("LGF Dialogue System/Dialogue node")]
-    public class DialogueNode : BaseDialogNode
+    public class DialogueNode : BaseDialogNode, IDialoguePhrase
     {
         [Input]
         public int input;
@@ -38,6 +38,8 @@ namespace LGF.DialogueSystem.Nodes
         private string phrase;
 
         public List<PlayerAnswer> answers = new List<PlayerAnswer>();
+        
+        public string Phrase => phrase;
 
         protected override void Init()
         {

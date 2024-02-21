@@ -1,9 +1,10 @@
-﻿using UnityEngine;
+﻿using LGF.DialogueSystem.Interfaces;
+using UnityEngine;
 
 namespace LGF.DialogueSystem.Nodes
 {
     [NodeWidth(600), CreateNodeMenu("LGF Dialogue System/Monologue node")]
-    public class MonologueNode : BaseDialogNode
+    public class MonologueNode : BaseDialogNode, IDialoguePhrase
     {
         [Input]
         public int input;
@@ -13,5 +14,7 @@ namespace LGF.DialogueSystem.Nodes
         
         [SerializeField]
         private string phrase;
+        
+        public string Phrase => phrase;
     }
 }
