@@ -1,4 +1,5 @@
 ﻿using LGF.DialogueSystem.Interfaces;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace LGF.DialogueSystem.Nodes
@@ -12,7 +13,7 @@ namespace LGF.DialogueSystem.Nodes
         [Output]
         public int exit;
         
-        [SerializeField]
+        [SerializeField, MultiLineProperty(7)]
         private string phrase;
         
         public string Phrase => phrase;
