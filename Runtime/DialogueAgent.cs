@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using LGF.DialogueSystem.Graphs;
 using LGF.DialogueSystem.Interfaces;
 using LGF.DialogueSystem.Nodes;
@@ -32,7 +33,7 @@ namespace LGF.DialogueSystem
 
         public BaseDialogNode Next(int answerId)
         {
-            _currentDialogueNode = _currentDialogueNode.GetNextNode();
+            _currentDialogueNode = _currentDialogueNode.GetNextNode(answerId);
             if (_currentDialogueNode != null)
             {
                 _currentDialogueNode.Enter();
@@ -41,16 +42,21 @@ namespace LGF.DialogueSystem
             return _currentDialogueNode;
         }
         
-        public bool IsEndOfDialogue()
+        public bool IsEndOfDialogue(int answerId)
         {
-            return _currentDialogueNode.GetNextNode().GetType() == typeof(DialogEndNode);
+            return _currentDialogueNode.GetNextNode(answerId).GetType() == typeof(DialogEndNode);
         }
 
         public bool IsNeedToAnswer()
         {
             return _currentDialogueNode.GetType() == typeof(DialogueNode);
         }
-        
+
+        public IEnumerable<DialogueAnswer> GetAnswerVariants()
+        {
+            return ((DialogueNode)_currentDialogueNode).answers;
+        }
+
         public bool HasPhrase()
         {
             return _currentDialogueNode is IDialoguePhrase;

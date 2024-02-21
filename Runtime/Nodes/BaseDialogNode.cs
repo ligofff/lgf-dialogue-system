@@ -38,7 +38,7 @@ namespace LGF.DialogueSystem.Nodes
             }
         }
         
-        public virtual BaseDialogNode GetNextNode()
+        public virtual BaseDialogNode GetNextNode(int answerId)
         {
             var nextNode = (BaseDialogNode)Outputs.FirstOrDefault()?.Connection?.node;
             return nextNode;

@@ -21,7 +21,7 @@ namespace LGF.DialogueSystem.Nodes
         [SerializeReference]
         public List<IDialogueCondition> conditions;
 
-        public override BaseDialogNode GetNextNode()
+        public override BaseDialogNode GetNextNode(int answerId)
         {
             NodePort nextPort = null;
                 
