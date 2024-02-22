@@ -36,7 +36,7 @@ namespace LGF.DialogueSystem.Nodes
     }
     
     [NodeWidth(600), CreateNodeMenu("LGF Dialogue System/Dialogue node")]
-    public class DialogueNode : BaseDialogNode, IDialoguePhrase
+    public class DialogueNode : BaseDialogNode, IDialoguePhrase, IDialogueAnswers
     {
         [SerializeField, MultiLineProperty(7)]
         private string phrase;
@@ -50,6 +50,7 @@ namespace LGF.DialogueSystem.Nodes
         public List<DialogueAnswer> answers = new List<DialogueAnswer>();
         
         public string Phrase => phrase;
+        public IEnumerable<DialogueAnswer> Answers => answers;
 
         protected override void Init()
         {
@@ -76,5 +77,6 @@ namespace LGF.DialogueSystem.Nodes
             
             return nextNode;
         }
+
     }
 }

@@ -14,6 +14,8 @@ namespace LGF.DialogueSystem
 
         private BaseDialogNode _currentDialogueNode;
         
+        public BaseDialogNode CurrentNode => _currentDialogueNode;
+        
         public DialogueAgent(DialogueGraph graph, object user, object character)
         {
             Graph = graph;
@@ -49,12 +51,12 @@ namespace LGF.DialogueSystem
 
         public bool IsNeedToAnswer()
         {
-            return _currentDialogueNode.GetType() == typeof(DialogueNode);
+            return _currentDialogueNode is IDialogueAnswers;
         }
 
         public IEnumerable<DialogueAnswer> GetAnswerVariants()
         {
-            return ((DialogueNode)_currentDialogueNode).answers;
+            return ((IDialogueAnswers)_currentDialogueNode).Answers;
         }
 
         public bool HasPhrase()
