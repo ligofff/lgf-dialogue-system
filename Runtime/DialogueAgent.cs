@@ -17,7 +17,7 @@ namespace LGF.DialogueSystem
         
         public BaseDialogNode CurrentNode => _currentDialogueNode;
         
-        public DialogueAgent(DialogueGraph graph, object user, params object[] characters)
+        public DialogueAgent(DialogueGraph graph, object user, object[] characters)
         {
             Graph = graph;
             User = user;
