@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using LGF.DialogueSystem.Graphs;
 using LGF.DialogueSystem.Interfaces;
 using LGF.DialogueSystem.Nodes;
@@ -10,17 +11,17 @@ namespace LGF.DialogueSystem
     {
         public DialogueGraph Graph;
         public object User;
-        public object Character;
+        public object[] Characters;
 
         private BaseDialogNode _currentDialogueNode;
         
         public BaseDialogNode CurrentNode => _currentDialogueNode;
         
-        public DialogueAgent(DialogueGraph graph, object user, object character)
+        public DialogueAgent(DialogueGraph graph, object user, params object[] characters)
         {
             Graph = graph;
             User = user;
-            Character = character;
+            Characters = characters;
         }
 
         public void StartDialogue()
