@@ -5,7 +5,7 @@ using UnityEngine;
 namespace LGF.DialogueSystem.Nodes
 {
     [NodeWidth(600), CreateNodeMenu("LGF Dialogue System/Monologue node")]
-    public class MonologueNode : BaseDialogNode, IDialoguePhrase
+    public class MonologueNode : BaseDialogueNode, IDialoguePhrase
     {
         [Input]
         public int input;

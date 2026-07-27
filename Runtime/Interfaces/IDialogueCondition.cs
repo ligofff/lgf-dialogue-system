@@ -2,6 +2,6 @@
 {
     public interface IDialogueCondition
     {
-        public bool Check();
+        public bool Check(DialogueAgent agent);
     }
 }

@@ -7,7 +7,7 @@ using XNode;
 namespace LGF.DialogueSystem.Nodes
 {
     [NodeWidth(600), CreateNodeMenu("LGF Dialogue System/Conditional node")]
-    public class DialogBranchNode : BaseDialogNode
+    public class DialogueBranchNode : BaseDialogueNode
     {
         [Input]
         public int input;
@@ -19,13 +19,13 @@ namespace LGF.DialogueSystem.Nodes
         public int[] outputs;
         
         [SerializeReference]
-        public List<IDialogueCondition> conditions;
+        public List<IDialogueCondition> conditions = new List<IDialogueCondition>();
 
-        public override BaseDialogNode GetNextNode(int answerId)
+        public override BaseDialogueNode GetNextNode(int answerId, DialogueAgent agent)
         {
             NodePort nextPort = null;
                 
-            var trueIndex = conditions.FindIndex(cond => cond.Check());
+            var trueIndex = conditions.FindIndex(cond => cond.Check(agent));
 
             if (trueIndex != -1)
             {
@@ -36,7 +36,7 @@ namespace LGF.DialogueSystem.Nodes
                 nextPort = Outputs.First(port => port.fieldName == "defaultOutput");
             }
 
-            var nextNode = (BaseDialogNode) nextPort?.Connection?.node;
+            var nextNode = (BaseDialogueNode) nextPort?.Connection?.node;
 
             return nextNode;
         }

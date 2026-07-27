@@ -6,7 +6,7 @@ using XNode;
 
 namespace LGF.DialogueSystem.Nodes
 {
-    public class BaseDialogNode : Node
+    public class BaseDialogueNode : Node
     {
         [SerializeField, HideInInspector]
         private string nodeGuid;
@@ -23,7 +23,7 @@ namespace LGF.DialogueSystem.Nodes
             base.Init();
 
             if (graph != null && initialized && graph.nodes
-                    .OfType<BaseDialogNode>()
+                    .OfType<BaseDialogueNode>()
                     .Where(node => node != this)
                     .Any(node => node.nodeGuid == nodeGuid))
             {
@@ -38,13 +38,13 @@ namespace LGF.DialogueSystem.Nodes
             }
         }
         
-        public virtual BaseDialogNode GetNextNode(int answerId)
+        public virtual BaseDialogueNode GetNextNode(int answerId, DialogueAgent agent)
         {
-            var nextNode = (BaseDialogNode)Outputs.FirstOrDefault()?.Connection?.node;
+            var nextNode = (BaseDialogueNode)Outputs.FirstOrDefault()?.Connection?.node;
             return nextNode;
         }
 
-        public virtual void Enter()
+        public virtual void Enter(DialogueAgent agent)
         {
             
         }

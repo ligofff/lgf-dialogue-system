@@ -13,9 +13,9 @@ namespace LGF.DialogueSystem
         public object User;
         public object[] Characters;
 
-        private BaseDialogNode _currentDialogueNode;
+        private BaseDialogueNode _currentDialogueNode;
         
-        public BaseDialogNode CurrentNode => _currentDialogueNode;
+        public BaseDialogueNode CurrentNode => _currentDialogueNode;
         
         public DialogueAgent(DialogueGraph graph, object user, object[] characters)
         {
@@ -31,15 +31,15 @@ namespace LGF.DialogueSystem
             if (_currentDialogueNode == null)
                 throw new NullReferenceException($"Start node is not defined in {Graph}!");
             
-            _currentDialogueNode.Enter();
+            _currentDialogueNode.Enter(this);
         }
 
-        public BaseDialogNode Next(int answerId)
+        public BaseDialogueNode Next(int answerId)
         {
-            _currentDialogueNode = _currentDialogueNode.GetNextNode(answerId);
+            _currentDialogueNode = _currentDialogueNode.GetNextNode(answerId, this);
             if (_currentDialogueNode != null)
             {
-                _currentDialogueNode.Enter();
+                _currentDialogueNode.Enter(this);
             }
 
             return _currentDialogueNode;
@@ -47,7 +47,7 @@ namespace LGF.DialogueSystem
         
         public bool IsEndOfDialogue(int answerId)
         {
-            return _currentDialogueNode.GetNextNode(answerId).GetType() == typeof(DialogEndNode);
+            return _currentDialogueNode.GetNextNode(answerId, this).GetType() == typeof(DialogueEndNode);
         }
 
         public bool IsNeedToAnswer()

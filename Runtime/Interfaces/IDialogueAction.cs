@@ -2,6 +2,6 @@
 {
     public interface IDialogueAction
     {
-        public void Invoke();
+        public void Invoke(DialogueAgent agent);
     }
 }

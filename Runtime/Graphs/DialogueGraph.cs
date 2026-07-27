@@ -9,11 +9,11 @@ namespace LGF.DialogueSystem.Graphs
     [CreateAssetMenu(menuName = "LGF Dialogue System/Dialogue Graph")]
     public class DialogueGraph : NodeGraph
     {
-        private IEnumerable<BaseDialogNode> DialogNodes => nodes.OfType<BaseDialogNode>();
+        private IEnumerable<BaseDialogueNode> DialogNodes => nodes.OfType<BaseDialogueNode>();
 
-        public DialogStartNode StartNode => (DialogStartNode)nodes.FirstOrDefault(node => node is DialogStartNode);
+        public DialogueStartNode StartNode => (DialogueStartNode)nodes.FirstOrDefault(node => node is DialogueStartNode);
 
-        public BaseDialogNode GetByGuid(string guid)
+        public BaseDialogueNode GetByGuid(string guid)
         {
             return DialogNodes.FirstOrDefault(node => node.NodeID == guid);
         }

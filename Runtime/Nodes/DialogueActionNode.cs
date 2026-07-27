@@ -5,7 +5,7 @@ using UnityEngine;
 namespace LGF.DialogueSystem.Nodes
 {
     [NodeWidth(600), CreateNodeMenu("LGF Dialogue System/Action node")]
-    public class DialogActionNode : BaseDialogNode
+    public class DialogueActionNode : BaseDialogueNode
     {
         [Input]
         public int input;
@@ -14,13 +14,13 @@ namespace LGF.DialogueSystem.Nodes
         public int defaultOutput;
 
         [SerializeReference]
-        public List<IDialogueAction> actions;
+        public List<IDialogueAction> actions = new List<IDialogueAction>();
 
-        public override void Enter()
+        public override void Enter(DialogueAgent agent)
         {
             foreach (var dialogueAction in actions)
             {
-                dialogueAction.Invoke();
+                dialogueAction.Invoke(agent);
             }
         }
     }

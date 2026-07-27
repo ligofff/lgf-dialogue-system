@@ -36,7 +36,7 @@ namespace LGF.DialogueSystem.Nodes
     }
     
     [NodeWidth(600), CreateNodeMenu("LGF Dialogue System/Dialogue node")]
-    public class DialogueNode : BaseDialogNode, IDialoguePhrase, IDialogueAnswers
+    public class DialogueNode : BaseDialogueNode, IDialoguePhrase, IDialogueAnswers
     {
         [SerializeField, MultiLineProperty(7)]
         private string phrase;
@@ -64,7 +64,7 @@ namespace LGF.DialogueSystem.Nodes
             }
         }
 
-        public override BaseDialogNode GetNextNode(int answerId)
+        public override BaseDialogueNode GetNextNode(int answerId, DialogueAgent agent)
         {
             NodePort nextPort = null;
                 
@@ -73,7 +73,7 @@ namespace LGF.DialogueSystem.Nodes
             if (nextPort == null)
                 throw new NullReferenceException($"Answer {answerId} is not defined in {name}!");
 
-            var nextNode = (BaseDialogNode) nextPort?.Connection?.node;
+            var nextNode = (BaseDialogueNode) nextPort?.Connection?.node;
             
             return nextNode;
         }
