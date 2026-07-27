@@ -36,7 +36,15 @@ namespace LGF.DialogueSystem
 
         public BaseDialogueNode Next(int answerId)
         {
-            _currentDialogueNode = _currentDialogueNode.GetNextNode(answerId, this);
+            var nextNode = _currentDialogueNode.GetNextNode(answerId, this);
+
+            while (nextNode is DialogueBranchNode)
+            {
+                nextNode = nextNode.GetNextNode(answerId, this);
+            }
+            
+            _currentDialogueNode = nextNode;
+            
             if (_currentDialogueNode != null)
             {
                 _currentDialogueNode.Enter(this);
