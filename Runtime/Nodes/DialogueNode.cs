@@ -31,6 +31,16 @@ namespace LGF.DialogueSystem.Nodes
         [SerializeReference, ShowIf("@conditionalAnswer")]
         public IDialogueCondition condition;
 
+        public DialogueAnswer()
+        {
+        }
+
+        public DialogueAnswer(string phrase, int id)
+        {
+            this.phrase = phrase;
+            this.id = id;
+        }
+
         public string Phrase => phrase;
         public int Id => id;
     }

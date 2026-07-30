@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using LGF.DialogueSystem.Nodes;
 using LGF.DialogueSystem.Graphs;
 using LGF.DialogueSystem.Interfaces;
 using LGF.DialogueSystem.Nodes;
@@ -32,6 +33,7 @@ namespace LGF.DialogueSystem
                 throw new NullReferenceException($"Start node is not defined in {Graph}!");
             
             _currentDialogueNode.Enter(this);
+            AdvanceAutoNodes();
         }
 
         public BaseDialogueNode Next(int answerId)
@@ -48,6 +50,7 @@ namespace LGF.DialogueSystem
             if (_currentDialogueNode != null)
             {
                 _currentDialogueNode.Enter(this);
+                AdvanceAutoNodes();
             }
 
             return _currentDialogueNode;
@@ -58,9 +61,21 @@ namespace LGF.DialogueSystem
             return _currentDialogueNode.GetNextNode(answerId, this).GetType() == typeof(DialogueEndNode);
         }
 
+        private void AdvanceAutoNodes()
+        {
+            while (_currentDialogueNode is IAutoDialogueNode autoNode &&
+                   autoNode.ShouldAutoPass(this))
+            {
+                _currentDialogueNode = _currentDialogueNode.GetNextNode(0, this);
+                if (_currentDialogueNode == null) return;
+                _currentDialogueNode.Enter(this);
+            }
+        }
+
         public bool IsNeedToAnswer()
         {
-            return _currentDialogueNode is IDialogueAnswers;
+            return _currentDialogueNode is IDialogueAnswers &&
+                   (!(_currentDialogueNode is IAutoDialogueNode autoNode) || !autoNode.ShouldAutoPass(this));
         }
 
         public IEnumerable<DialogueAnswer> GetAnswerVariants()
